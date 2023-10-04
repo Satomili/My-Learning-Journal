@@ -1,0 +1,301 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: #FFFFFF;
+    user-select: none;
+}
+
+/* ---------------------------------------CSSgrid */
+
+.container {
+    display: grid;
+    grid-template-columns: 1em auto 1em;
+    grid-template-areas: 
+        ". header ."
+        "top top top"
+        ". main ."
+        ". section ."
+        "footer footer footer";
+}
+
+header {
+    grid-area: header;
+    height: 59px;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    margin-top: 1.25em; /* 20px */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1em;   
+}
+
+.view-more {
+    grid-area: section;
+}
+
+.recent-posts {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    height: 105px;
+    background-color: #202020;
+    color: #ECECEC;
+}
+
+.background-img {
+    grid-column: 1/ -1;
+    grid-row: 2;
+    position: relative;
+}
+
+.section-home {
+    background-image: url("images/blog-image-hero.jpg");
+    background-size: cover;
+    grid-area: top;
+    padding: 7em 1em 0 1em;
+    width: 100%;
+}
+
+.section-article,
+.section-about-me-article {
+    grid-area: top;
+    padding: 1em 1em 0 1em;
+}
+
+/* --------------------------------------typography */
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem; /* 14px */
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header-left a {
+    color: #0E0E0E;
+}
+
+nav a {
+    color: #090909;
+}
+
+section a {
+    color: #FFFFFF;
+}
+
+ul {
+    list-style-type: none;
+    font-weight: 600;
+    margin: 0;
+}
+
+.top-article-title {
+    font-size: 2rem; /* 32px */
+    padding-bottom: 0.625em; /* 10px */
+}
+
+h2 {
+    font-size: 1.5rem; /* 24px */
+    margin: 0.625em 0; /* 10px */
+}
+
+span,
+footer p,
+ul {
+    font-size: 0.75rem; /* 12px */
+}
+
+p {
+    margin: 0;
+    margin-bottom: 1.875em; /* 30px */
+}
+
+footer p {
+    margin: 0;
+}
+
+.article-date {
+    text-transform: uppercase;
+}
+
+.posts article p {
+    color: #505050;
+}
+
+/* ---------------------------------------------------layout*/
+/* header */
+
+.logo {
+    width: 23.16px;
+    height: 23.16px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+ul {
+    display: flex;
+    gap: 30px;
+}
+
+
+/* main */
+
+.article-img {
+    width: 100%;
+    height: 232px;
+    object-fit: cover;
+}
+
+.about-me-article,
+.about-me-article-top {
+    margin-bottom: 3.125em; /* 50px */
+}
+
+.top-article {
+    margin-bottom: 0.625em; /* 10px */
+}
+
+.top-article .article-img {
+    margin-bottom: 1.875em; /* 30px */
+}
+
+.about-me-article .article-img {
+    width: 182px;
+    height: 182px;
+}
+
+.top-article-title {
+    margin-bottom: 0.2em; /* 20px */
+}
+
+.display-none {
+    display: none;
+}
+
+.posts {
+    margin-top: 2.5em; /* 40px */
+}
+
+
+/* view-more */
+
+.view-more {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.view-more p {
+    border-bottom: 1px solid #090909
+}
+
+
+/* footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+@media(min-width: 800px) {
+    
+    .container {
+        display: grid;
+        grid-template-columns: 2em auto 2em;
+        grid-template-areas: 
+            ". header ."
+            "top top top"
+            ". main ."
+            ". section ."
+            "footer footer footer";
+    }
+    
+    main {
+    grid-area: main;
+    display: grid;
+    margin-top: 1.25em; /* 20px */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;   
+}
+    
+    /* typography */
+    
+    .logo {
+        width: 34.25px;
+        height: 34.25px
+    }
+    
+    h1 {
+        font-size: 1.25rem; /* 20px */
+    }
+    
+    ul {
+        font-size: 1rem;
+    }
+    
+    .top-article-title {
+    font-size: 2.5rem; /* 40px */
+    }
+
+    h2,
+    .recent-posts p {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    top-article span {
+        font-size: 1rem; /* 16px */
+    }
+    
+    span {
+        font-size: 0.875em; /* 14px */
+    }
+    
+    header {
+        height: 80px;
+    }
+    
+    .about-me-article-top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .section-home span,
+    .section-home h2,
+    .section-home p {
+        max-width: 900px;
+    }
+    
+    .section-about-me-article,
+    .section-article {
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+
+}
